@@ -13,6 +13,7 @@ sed -i "s/timezone='.*'/timezone='CST-8'/g" $CFG_FILE
 sed -i "/timezone='.*'/a\\\t\t\set system.@system[-1].zonename='Asia/Shanghai'" $CFG_FILE
 
 if [[ $WRT_URL == *"lede"* ]]; then
+
 	LEDE_FILE=$(find ./package/lean/autocore/ -type f -name "index.htm")
 	#修改默认时间格式
 	sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $LEDE_FILE
@@ -38,5 +39,5 @@ if [[ $WRT_URL == *"lede"* ]]; then
 else
 	echo "CONFIG_PACKAGE_luci=y" >> ./.config
 	echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
-	echo "CONFIG_PACKAGE_luci-app-homeproxy=y" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-homeproxy=n" >> ./.config
 fi
