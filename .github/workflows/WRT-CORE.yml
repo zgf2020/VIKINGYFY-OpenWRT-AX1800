@@ -105,7 +105,7 @@ jobs:
 
       - name: Check Scripts
         run: |
-          find ./ -maxdepth 2 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
+          find ./ -maxdepth 3 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
 
       - name: Check Patches
         run: |
@@ -227,6 +227,8 @@ jobs:
             这是个平台固件包，内含多个设备！
             请注意选择你需要的设备固件！
             不要问，刷就完事了！
+
+            MTK和QCA全系带开源硬件加速，别问了！
 
             源码：${{env.WRT_SOURCE}}
             平台：${{env.WRT_TARGET}}
